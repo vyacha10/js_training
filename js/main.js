@@ -22,30 +22,58 @@ console.log (amount1);
 let amount2 = prompt ('Во сколько это обойдется?');
 console.log (amount2);
 
-let budgetMonth = money - (amount1 + amount2);
-console.log('Бюджет на месяц: ', budgetMonth);
+//let budgetMonth = money - (amount1 + amount2);
+//console.log('Бюджет на месяц: ', budgetMonth);
 let budgetMonth1 = Number(money) - (Number(amount1) + Number(amount2));
 
 let mission =  1000000000;
-console.log(`Цель будет достигнута за: ${Math.ceil (mission/budgetMonth)} месяцев`);
+//console.log(`Цель будет достигнута за: ${Math.ceil (mission/budgetMonth)} месяцев`);
 //const missionString = `цель заработать ${mission} долларов`;
 //console.log (missionString); 
-let budgetDay = budgetMonth / 30;
-console.log('Бюджет на день: ', Math.floor(budgetDay));
+//let budgetDay = budgetMonth / 30;
+//console.log('Бюджет на день: ', Math.floor(budgetDay));
 
-if (budgetDay > 1200) {
+//if (budgetDay > 1200) {
     console.log ('у вас высокий уровень дохода');
-} else if (budgetDay > 600 && budgetDay < 1200 ) {
+//} else if (budgetDay > 600 && budgetDay < 1200 ) {
     console.log ('у вас средний уровень дохода');
-} else if (budgetDay < 600) {
+//} else if (budgetDay < 600) {
     console.log ('к сожалению уровень дохода ниже среднего');
-} else if (budgetDay < 0) {
+//} else if (budgetDay < 0) {
     console.log ('что то  пошло не так')
-};
+//};
 
 //let period =12;
 //const periodString = `период равен ${period}`; 
 //console.log(periodString);
+
+
+
+function getExpensesMonth () {
+    return amount1 + amount2;
+};
+getExpensesMonth ();
+console.log (getExpensesMonth);
+
+
+function getAccumulatedMonth  (moneyMonth, expensesMonth) {
+    return moneyMonth - expensesMonth;
+};
+getAccumulatedMonth ();
+console.log('Накопления за месяц: ', getAccumulatedMonth(money, getExpensesMonth()));
+
+const accumulatedMonth = getAccumulatedMonth(money, getExpensesMonth());
+console.log (accumulatedMonth);
+
+function getTargetMonth (myMiss, budgetMonth) {
+    return Math.ceil(myMiss / budgetMonth);
+};
+getTargetMonth ();
+console.log ('за какой период будет достигнута цель: ' , getTargetMonth)  
+
+let budgetDay = accumulatedMonth / 30;
+console.log (budgetDay);
+
 
 
 
